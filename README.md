@@ -1,10 +1,9 @@
-## Team Four Nexus Project
-===========================
-A console version of Instagram
+# Team Four Nexus Project
 
-#####Team
-1. Project Lead- Yannick Aka
-2. Dev Lead - Philisiah Mwaluma
-3. Dexter Quattarra
-4. Justin Wainaina
-5. Precious Okafor
+A Console Version of Instagram
+-------------------------------
++ Team Lead - Yannick Aka
++ Dev Lead - Philisiah Mwaluma
++ Dexter Quattara
++ Justin Wainaina
++ Precious Okafor
