@@ -1,27 +1,31 @@
 import datetime
 import csv
-import randint
-from random
+
+
 
 
 class Post:
-    def __init__(self, title="", date_time="", content="", user_id=""):
+    def __init__(self, title="", date_time="", content="":
         self.title = title
         self.date_time = date_time
         self.content = content
-        self.user_id = user_id
 
     def publish_post(self):
-        self.title = input("Please enter the title of your post: ")
-        self.date_time = datetime.datetime.now()
-        self.content = input("Please type your post: ")
-        self.user_id = randint(1000000, 9999999 + 1)
 
 
-        post_file_writer =open('post.csv', 'w', newline='').writerow([self.title, self.date_time, self.content, self.user_id])
+
+        post_file = open('post.csv', 'w', newline='').
+        post_reader = csv.writerow([self.title, self.date_time, self.content])
+
+        post_file.close()
 
     def delete_post(self):
-        pass
+        post_file = open('post.csv')
+        post_reader = csv.reader(post_file)
+        title_to_delete = input("Enter title of the post you want to delete: ")
+
+        for row in post_reader:
+            if title_to_delete in post == True
 
     def update_post(self):
         pass
