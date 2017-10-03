@@ -1,21 +1,24 @@
 import re
 import bcrypt
+import random
+import csv
 
 
 class User(object):
 
     def __init__(self, username, email, password):
+        self.user_id = random.randint(10000000, 9999999999999)
         self.username = username
         self.email = email
-        self. password = password
-        self.bio
-        self.location
+        self.password = password
+        self.bio =''
+        self.location=''
         self.following = []
         self.followers = []
 
     @property
     def username(self):
-        return self._name
+        return self._username
 
     @property
     def password(self):
@@ -34,18 +37,16 @@ class User(object):
 
     @email.setter
     def email(self, emailstring):
-        if re.match(r"^[\w\.+\-]+\@[\w]+\.[a-z]{2,3}$", emailstring):
-            if self.findall(emailstring) != True:
-                self.send_email(emailstring)
-                print ("An authentication code has been sent to your email enter it  to continue")
+        try:
+            if re.match(r"^[\w\.+\-]+\@[\w]+\.[a-z]{2,3}$", emailstring):
+                if self.findall(emailstring) != True:
+                    self._email = emailstring
+                else:
+                    return "Email already in use"
             else:
-                return "Email already in use"
-        else:
-            return 'Invalid email'
-        if self.validate_email(emailstring):
-            self._email = emailstring
-        else:
-            return "Enter code to vaildate email"
+                raise ValueError('Not a valid email')
+        except ValueError as e:
+            print ("Please enter a valid Email")
 
     @password.setter
     def password(self, value):
@@ -64,18 +65,35 @@ class User(object):
         return False
 
     def findall(self, value):
-        user = 
-        for i in user:
-            if value in i:
+        user = open('users.csv' , 'r')
+        userfile = csv.reader(user)
+        for vals in userfile:
+            if value in vals:
                 return True
             return False
 
     def send_email(self, email):
         pass
+
     def validate_email(self, value):
         pass
-    def is_following(self):
-        pass
+
+    def add_bio(self, value):
+        return self.bio = value
+
+
+    def is_following(self, other):
+        for val in self.following:
+            if other in  
+
     def followers(self):
         pass
-    
+    def save_user(self):
+        users = open('users.csv', 'a+')
+        fieldnames = ['User_Id', 'Username',
+                      'Email', 'Password', 'Bio', 'Location']
+        writer = csv.DictWriter(users, fieldnames=fieldnames)
+        writer.writerow({'User_Id': self.user_id,\
+         'Username': self.username, 'Email': self.email, 'Password': self.password, 'Bio': self.bio, 'Location':self.location})
+        users.close()
+
