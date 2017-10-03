@@ -31,7 +31,7 @@ class Comment:
         save_comment = open('comments.csv', 'a+')
         field_names = ["user_id", "comment", "time"]
         comments = csv.DictWriter()
-        comments.writerow({"user_id": self.user_id, "comment": self.comment, "time": self.time})
+        comments.writerow({"user_id": self.user_id, "comment": self.comment, "time":self.time})
 
 
 class Share:
