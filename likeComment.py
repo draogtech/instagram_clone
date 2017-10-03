@@ -1,11 +1,5 @@
-import datetime
-
-
-class Like:
-    def __init__(self, post_id, user_id, time):
-        self.post_id = post_id
-        self.user_id = user_id
-        self.time = datetime.datetime.now()
+class LikeComment():
+    def __init__(self):
         self.like = False
 
     def like_is_ok(self):
@@ -17,6 +11,6 @@ class Like:
         return self.like
 
 if __name__ == "__main__":
-    like = Like()
+    like_comment = LikeComment()
 
-
+    print(like_comment.like_is_notok())
