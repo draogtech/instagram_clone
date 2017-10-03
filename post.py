@@ -33,20 +33,30 @@ class Post:
         post_file = open('post.csv')
         post_reader = csv.reader(post_file)
         post_data = list(post_reader)
-        print(post_data)
 
         for i in post_data:
             print('******************************************************')
             for j in range(len(i) - 1):
-                print(i[j])
+                return i[j]
 
-    def find_post(self):
-        
+        post_file.close()
+
+    def find_in_post(self, value):
+        post_file = open('post.csv')
+        post_reader = csv.reader(post_file)
+        post_data = list(post_reader)
+
+        for i in post_data:
+            if value in i:
+                print(value)
+            else:
+                print('No such post')
 
 
-
-g = Post("gghh", "wow!")
+g = Post("hello", "wow!")
 
 g.save_post()
 
 g.show_all_posts()
+
+g.find_in_post("hello")
